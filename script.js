@@ -12,8 +12,8 @@ const perguntas = [
             "A feijoada é um prato que foi exclusivamente desenvolvido na Europa e não tem conexão com a história do racismo ou a cultura afro-brasileira .",
 
             "A feijoada, embora originalmente um prato associado a culinária afro-brasileira, pode ser usado como um meio de promover a preservação cultural e discutir questões de racismo no Brasil."
-        ] 
-    }, 
+        ]
+    },
     {
         enunciado: "De que maneira a promoção da feijoada como um símbolo da diversidade cultural e sua conexão com práticas agroecológicas podem ajudar a combater estereótipos raciais e preconceitos associados à culinária afro-brasileira?",
 
@@ -67,6 +67,15 @@ let perguntaAtual;
 function mostraPergunta() {
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
+}
+
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
 }
 
 mostraPergunta();
